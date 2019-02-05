@@ -8,12 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.lang.Math.*;
 import java.awt.event.*;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.JFrame;
-import javax.swing.SwingConstants;
+
 
 public class Calculator extends JFrame{
     private JLabel headerL, oneL, twoL, threeL, finalL;
@@ -42,11 +37,11 @@ public class Calculator extends JFrame{
         
         //buttons
         addB = new JButton ("+");
-        adHandler = new AddButtonHandler();
+        abHandler = new AddButtonHandler();
         addB.addActionListener(abHandler);
         
-        exitB - new JButton("Exit");
-        ebHandler - new ExitButtonHandler();
+        exitB = new JButton("Exit");
+        ebHandler = new ExitButtonHandler();
         exitB.addActionListener(ebHandler);
         
         setTitle("Basketball Score Calc");
