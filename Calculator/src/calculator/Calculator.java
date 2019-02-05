@@ -1,57 +1,100 @@
 package calculator;
 
-/**
- * @author Tanner Armstrong
- * @version
- */
-import javax.swing.*;
-import java.awt.*;
-import java.lang.Math.*;
+import javax.swing.JFrame;
 import java.awt.event.*;
+import java.awt.*;
+import javax.swing.*;
+import static java.lang.Math.*;
 
-
-public class Calculator extends JFrame{
-    private JLabel headerL, oneL, twoL, threeL, finalL;
-    private JTextField oneTF, twoTF, threeTF, finalTF;
-    private JButton oneB, twoB, threeB, exitB, addB;
+public class Calculator extends JFrame
+{
+   private JLabel headerL, header2L, oneL, twoL, threeL, finalL;
+   private JTextField oneTF, twoTF, threeTF, finalTF;
+   private JButton exitB, addB;
+   
+   private AddButtonHandler abHandler;
+   private ExitButtonHandler ebHandler;
+   
+   private static final int WIDTH = 400;
+   private static final int HEIGHT = 300;
+   
+   public Calculator()
+   {
+   
+    headerL = new JLabel("BB Score Calc", SwingConstants.CENTER);
+    header2L = new JLabel("    ", SwingConstants.CENTER);
+    oneL = new JLabel("Enter Number of Free Throws",SwingConstants.RIGHT);
+    twoL = new JLabel("Enter Number of 2 Point Shots",SwingConstants.RIGHT);
+    threeL = new JLabel("Enter Number of 3 Point Shots",SwingConstants.RIGHT);
+    finalL = new JLabel("Final Score",SwingConstants.RIGHT);
     
-    private static final int WIDTH = 400;
-    private static final int HEIGHT = 300;
+    //create new text fields
+    oneTF = new JTextField(4);
+    twoTF = new JTextField(4);
+    threeTF = new JTextField(4);
+    finalTF = new JTextField(5);
+ 
+    //create buttons
+    addB = new JButton("+");
+    abHandler = new AddButtonHandler();
+    addB.addActionListener(abHandler);
     
-    private AddButtonHandler abHandler;
-    private ExitButtonHandler ebHandler;
+    exitB = new JButton("Exit");
+    ebHandler = new ExitButtonHandler();
+    exitB.addActionListener(ebHandler);
     
-    public Calculator(){
-        //labels
-        headerL = new JLabel("BasketBall Score Calculator", SwingConstants.CENTER);
-        oneL = new JLabel("Enter Number of Free Throws", SwingConstants.RIGHT);
-        twoL = new JLabel("Enter Number of 2 Point Shots", SwingConstants.RIGHT);
-        threeL = new JLabel("Enter Number of 3 Point Shots", SwingConstants.RIGHT);
-        finalL = new JLabel("Final Score", SwingConstants.RIGHT);
+    setTitle("Basketball Score Calc");
+    Container pane = getContentPane();
+    pane.setLayout(new GridLayout(6,2));
+    
+    pane.add(headerL);
+    pane.add(header2L);
+    pane.add(oneL);
+    pane.add(oneTF);
+    pane.add(twoL);
+    pane.add(twoTF);
+    pane.add(threeL);
+    pane.add(threeTF);
+    pane.add(finalL);
+    pane.add(finalTF);
+    pane.add(addB);
+    pane.add(exitB);
+    
+    setSize (WIDTH, HEIGHT);
+    setVisible(true);
+    setDefaultCloseOperation(EXIT_ON_CLOSE);  
+    }
+   
+   
+    private class AddButtonHandler implements ActionListener
+    {
+      public void actionPerformed(ActionEvent e)
+      {
+        int one, two, three, finalScore;
         
-        //text fields
-        oneTF = new JTextField(3);
-        twoTF = new JTextField(3);
-        threeTF = new JTextField(3);
-        finalTF = new JTextField(4);
+        one = Integer.parseInt(oneTF.getText());
+        two = Integer.parseInt(twoTF.getText());
+        three = Integer.parseInt(threeTF.getText());
         
-        //buttons
-        addB = new JButton ("+");
-        abHandler = new AddButtonHandler();
-        addB.addActionListener(abHandler);
+        finalScore = (one * 1) + (two * 2) + (three * 3);
         
-        exitB = new JButton("Exit");
-        ebHandler = new ExitButtonHandler();
-        exitB.addActionListener(ebHandler);
+        finalTF.setText(""+String.format("%d",finalScore));
         
-        setTitle("Basketball Score Calc");
-        Container pane = getContentPane();
-        pane.setLayout(new GridLayout(6,2));
-        
-        
+        }
     }
     
-    public static void main(String[] args) {
-
+    
+    private class ExitButtonHandler implements ActionListener
+    {
+      public void actionPerformed(ActionEvent e)
+      {
+        System.exit(0);
+        }
+    }
+    
+    
+    public static void main(String[] args)
+    {
+        Calculator bbcalc = new Calculator();
     }
 }
