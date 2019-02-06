@@ -9,6 +9,8 @@ import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
+import java.awt.Color;
 
 //importing all of awt because i don't know what part i need
 import java.awt.*;
@@ -16,7 +18,7 @@ import java.awt.*;
 public class RadicalCalculator extends JFrame {
     private JLabel topHead, topHead2, firstInL, secondInL, outLabel, functionLabel, functionLabel2;
     private JTextField firstInTF, secondInTF, outputTF;
-    private JButton addBut, subBut, multBut, divBut, sq1But, sq2But, log1But, log2But, exitBut, clearBut;
+    private JButton addBut, subBut, multBut, divBut, sq1But, sq2But, partyBut, log2But, exitBut, clearBut;
     
     //all of the freaking button handlers
     private AddButtonHandler addHandler;
@@ -25,13 +27,16 @@ public class RadicalCalculator extends JFrame {
     private DivisionButtonHandler divHandler;
     private SquareOneButtonHandler sq1Handler;
     private SquareTwoButtonHandler sq2Handler;
-    private LogorithmOneButtonHandler log1Handler;
+    private PartyButtonHandler partyHandler;
     private LogorithmTwoButtonHandler log2Handler;
     private ExitButtonHandler exitHandler;
     private ClearButtonHandler clearHandler;
     
     private static final int WIDTH = 400;
     private static final int HEIGHT = 500;
+    
+    Container pane = getContentPane();
+
     
     public RadicalCalculator(){
         //labeling the labels
@@ -73,9 +78,9 @@ public class RadicalCalculator extends JFrame {
         sq2Handler = new SquareTwoButtonHandler();
         sq2But.addActionListener(sq2Handler);
         
-        log1But = new JButton("Log 1st");
-        log1Handler = new LogorithmOneButtonHandler();
-        log1But.addActionListener(log1Handler);
+        partyBut = new JButton("Party");
+        partyHandler = new PartyButtonHandler();
+        partyBut.addActionListener(partyHandler);
         
         log2But = new JButton("Log 2nd");
         log2Handler = new LogorithmTwoButtonHandler();
@@ -90,7 +95,6 @@ public class RadicalCalculator extends JFrame {
         clearBut.addActionListener(clearHandler);
         
         setTitle("Tanner's Radical Calculator");
-        Container pane = getContentPane();
         pane.setLayout(new GridLayout(10,2));
         
         pane.add(topHead);
@@ -109,10 +113,11 @@ public class RadicalCalculator extends JFrame {
         pane.add(divBut);
         pane.add(sq1But);
         pane.add(sq2But);
-        pane.add(log1But);
+        pane.add(partyBut);
         pane.add(log2But);
         pane.add(exitBut);
         pane.add(clearBut);
+        
         
         setSize(WIDTH, HEIGHT);
         setVisible(true);
@@ -126,7 +131,7 @@ public class RadicalCalculator extends JFrame {
             double two = Double.parseDouble(secondInTF.getText());
             
             double out = one + two;
-            outputTF.setText("" + String.format("%f", out));            
+            outputTF.setText("" + String.format("%.0f", out));            
         }
     }
     
@@ -136,7 +141,7 @@ public class RadicalCalculator extends JFrame {
             double two = Double.parseDouble(secondInTF.getText());
             
             double out = one - two;
-            outputTF.setText("" + String.format("%f", out));
+            outputTF.setText("" + String.format("%.0f", out));
         }
     }
     
@@ -146,7 +151,7 @@ public class RadicalCalculator extends JFrame {
             double two = Double.parseDouble(secondInTF.getText());
             
             double out = one * two;
-            outputTF.setText("" + String.format("%f", out));
+            outputTF.setText("" + String.format("%.0f", out));
         }
     }
     
@@ -156,16 +161,16 @@ public class RadicalCalculator extends JFrame {
             double two = Double.parseDouble(secondInTF.getText());
             
             double out = one / two;
-            outputTF.setText("" + String.format("%f", out));
+            outputTF.setText("" + String.format("%.0f", out));
         }
     }
     
     private class SquareOneButtonHandler implements ActionListener{
         public void actionPerformed(ActionEvent e){
-            double one = Double.parseDouble(firstInTF.getText());
-            
-            double out = one * one;
-            outputTF.setText("" + String.format("%f", out));
+                 for(int x = 0; x < 10; x++){
+                 pane.setBackground(Color.RED);
+                 pane.setBackground(Color.BLUE);
+            }
         }
     }
     
@@ -174,19 +179,25 @@ public class RadicalCalculator extends JFrame {
             double two = Double.parseDouble(secondInTF.getText());
             
             double out = two * two;
-            outputTF.setText("" + String.format("%f", out));
+            outputTF.setText("" + String.format("%.0f", out));
         }   
     }
     
-    private class LogorithmOneButtonHandler implements ActionListener{
+    private class PartyButtonHandler implements ActionListener{
         public void actionPerformed(ActionEvent e){
-            //however logorithms work
+            double one = Double.parseDouble(firstInTF.getText());
+            
+            double out = Math.log(one);
+            outputTF.setText("" + String.format("%.2f", out));
         }
     }
     
     private class LogorithmTwoButtonHandler implements ActionListener{
         public void actionPerformed(ActionEvent e){
-            //however logorithms work
+            double two = Double.parseDouble(secondInTF.getText());
+            
+            double out = Math.log(two);
+            outputTF.setText("" + String.format("%.2f", out));
         }
     }
     
@@ -201,6 +212,7 @@ public class RadicalCalculator extends JFrame {
             firstInTF.setText("");
             secondInTF.setText("");
             outputTF.setText("");
+            pane.setBackground(Color.WHITE);
         }
     }
     
