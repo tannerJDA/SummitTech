@@ -29,10 +29,17 @@ public class Calculator extends JFrame
     finalL = new JLabel("Final Score",SwingConstants.RIGHT);
     
     //create new text fields
+<<<<<<< HEAD
     oneTF = new JTextField(4);
     twoTF = new JTextField(4);
     threeTF = new JTextField(4);
     finalTF = new JTextField(5);
+=======
+    oneTF = new JTextField(3);
+    twoTF = new JTextField(3);
+    threeTF = new JTextField(3);
+    finalTF = new JTextField(4);
+>>>>>>> 103632ef3d2b81ace7393e08212d70b22d50d93f
  
     //create buttons
     addB = new JButton("+");
@@ -65,12 +72,16 @@ public class Calculator extends JFrame
     setDefaultCloseOperation(EXIT_ON_CLOSE);  
     }
    
+<<<<<<< HEAD
    
+=======
+>>>>>>> 103632ef3d2b81ace7393e08212d70b22d50d93f
     private class AddButtonHandler implements ActionListener
     {
       public void actionPerformed(ActionEvent e)
       {
         int one, two, three, finalScore;
+<<<<<<< HEAD
         
         one = Integer.parseInt(oneTF.getText());
         two = Integer.parseInt(twoTF.getText());
@@ -78,12 +89,23 @@ public class Calculator extends JFrame
         
         finalScore = (one * 1) + (two * 2) + (three * 3);
         
+=======
+        
+        one = Integer.parseInt(oneTF.getText());
+        two = Integer.parseInt(twoTF.getText());
+        three = Integer.parseInt(threeTF.getText());
+        
+        finalScore = (one * 1) + (two * 2) + (three * 3);
+>>>>>>> 103632ef3d2b81ace7393e08212d70b22d50d93f
         finalTF.setText(""+String.format("%d",finalScore));
         
         }
     }
     
+<<<<<<< HEAD
     
+=======
+>>>>>>> 103632ef3d2b81ace7393e08212d70b22d50d93f
     private class ExitButtonHandler implements ActionListener
     {
       public void actionPerformed(ActionEvent e)
@@ -92,7 +114,10 @@ public class Calculator extends JFrame
         }
     }
     
+<<<<<<< HEAD
     
+=======
+>>>>>>> 103632ef3d2b81ace7393e08212d70b22d50d93f
     public static void main(String[] args)
     {
         Calculator bbcalc = new Calculator();
