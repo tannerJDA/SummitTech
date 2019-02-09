@@ -9,6 +9,11 @@ import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.SwingConstants;
+<<<<<<< HEAD
+=======
+import javax.swing.Timer;
+import java.awt.Color;
+>>>>>>> a0e2f169f25941a1bcd9d852bcf219b6a042fa72
 
 //importing all of awt because i don't know what part i need
 import java.awt.*;
@@ -16,7 +21,11 @@ import java.awt.*;
 public class RadicalCalculator extends JFrame {
     private JLabel topHead, topHead2, firstInL, secondInL, outLabel, functionLabel, functionLabel2;
     private JTextField firstInTF, secondInTF, outputTF;
+<<<<<<< HEAD
     private JButton addBut, subBut, multBut, divBut, sq1But, sq2But, log1But, log2But, exitBut, clearBut;
+=======
+    private JButton addBut, subBut, multBut, divBut, sq1But, sq2But, partyBut, log2But, exitBut, clearBut;
+>>>>>>> a0e2f169f25941a1bcd9d852bcf219b6a042fa72
     
     //all of the freaking button handlers
     private AddButtonHandler addHandler;
@@ -25,7 +34,11 @@ public class RadicalCalculator extends JFrame {
     private DivisionButtonHandler divHandler;
     private SquareOneButtonHandler sq1Handler;
     private SquareTwoButtonHandler sq2Handler;
+<<<<<<< HEAD
     private LogorithmOneButtonHandler log1Handler;
+=======
+    private PartyButtonHandler partyHandler;
+>>>>>>> a0e2f169f25941a1bcd9d852bcf219b6a042fa72
     private LogorithmTwoButtonHandler log2Handler;
     private ExitButtonHandler exitHandler;
     private ClearButtonHandler clearHandler;
@@ -33,6 +46,12 @@ public class RadicalCalculator extends JFrame {
     private static final int WIDTH = 400;
     private static final int HEIGHT = 500;
     
+<<<<<<< HEAD
+=======
+    Container pane = getContentPane();
+
+    
+>>>>>>> a0e2f169f25941a1bcd9d852bcf219b6a042fa72
     public RadicalCalculator(){
         //labeling the labels
         topHead = new JLabel("Radical Calculator", SwingConstants.CENTER);
@@ -73,9 +92,15 @@ public class RadicalCalculator extends JFrame {
         sq2Handler = new SquareTwoButtonHandler();
         sq2But.addActionListener(sq2Handler);
         
+<<<<<<< HEAD
         log1But = new JButton("Log 1st");
         log1Handler = new LogorithmOneButtonHandler();
         log1But.addActionListener(log1Handler);
+=======
+        partyBut = new JButton("Party");
+        partyHandler = new PartyButtonHandler();
+        partyBut.addActionListener(partyHandler);
+>>>>>>> a0e2f169f25941a1bcd9d852bcf219b6a042fa72
         
         log2But = new JButton("Log 2nd");
         log2Handler = new LogorithmTwoButtonHandler();
@@ -90,7 +115,10 @@ public class RadicalCalculator extends JFrame {
         clearBut.addActionListener(clearHandler);
         
         setTitle("Tanner's Radical Calculator");
+<<<<<<< HEAD
         Container pane = getContentPane();
+=======
+>>>>>>> a0e2f169f25941a1bcd9d852bcf219b6a042fa72
         pane.setLayout(new GridLayout(10,2));
         
         pane.add(topHead);
@@ -109,11 +137,19 @@ public class RadicalCalculator extends JFrame {
         pane.add(divBut);
         pane.add(sq1But);
         pane.add(sq2But);
+<<<<<<< HEAD
         pane.add(log1But);
+=======
+        pane.add(partyBut);
+>>>>>>> a0e2f169f25941a1bcd9d852bcf219b6a042fa72
         pane.add(log2But);
         pane.add(exitBut);
         pane.add(clearBut);
         
+<<<<<<< HEAD
+=======
+        
+>>>>>>> a0e2f169f25941a1bcd9d852bcf219b6a042fa72
         setSize(WIDTH, HEIGHT);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -162,10 +198,17 @@ public class RadicalCalculator extends JFrame {
     
     private class SquareOneButtonHandler implements ActionListener{
         public void actionPerformed(ActionEvent e){
+<<<<<<< HEAD
             double one = Double.parseDouble(firstInTF.getText());
             
             double out = one * one;
             outputTF.setText("" + String.format("%.0f", out));
+=======
+                 for(int x = 0; x < 10; x++){
+                 pane.setBackground(Color.RED);
+                 pane.setBackground(Color.BLUE);
+            }
+>>>>>>> a0e2f169f25941a1bcd9d852bcf219b6a042fa72
         }
     }
     
@@ -178,21 +221,37 @@ public class RadicalCalculator extends JFrame {
         }   
     }
     
+<<<<<<< HEAD
     private class LogorithmOneButtonHandler implements ActionListener{
         public void actionPerformed(ActionEvent e){
             double one = Double.parseDouble(firstInTF.getText());
             double out;
             
             outputTF.setText("Function not working");
+=======
+    private class PartyButtonHandler implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            double one = Double.parseDouble(firstInTF.getText());
+            
+            double out = Math.log(one);
+            outputTF.setText("" + String.format("%.2f", out));
+>>>>>>> a0e2f169f25941a1bcd9d852bcf219b6a042fa72
         }
     }
     
     private class LogorithmTwoButtonHandler implements ActionListener{
         public void actionPerformed(ActionEvent e){
+<<<<<<< HEAD
             double two = Double.parseDouble(firstInTF.getText());
             double out;
             
             outputTF.setText("Function not working");
+=======
+            double two = Double.parseDouble(secondInTF.getText());
+            
+            double out = Math.log(two);
+            outputTF.setText("" + String.format("%.2f", out));
+>>>>>>> a0e2f169f25941a1bcd9d852bcf219b6a042fa72
         }
     }
     
@@ -207,6 +266,10 @@ public class RadicalCalculator extends JFrame {
             firstInTF.setText("");
             secondInTF.setText("");
             outputTF.setText("");
+<<<<<<< HEAD
+=======
+            pane.setBackground(Color.WHITE);
+>>>>>>> a0e2f169f25941a1bcd9d852bcf219b6a042fa72
         }
     }
     

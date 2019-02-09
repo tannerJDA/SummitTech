@@ -29,10 +29,23 @@ public class Calculator extends JFrame
     finalL = new JLabel("Final Score",SwingConstants.RIGHT);
     
     //create new text fields
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    oneTF = new JTextField(4);
+    twoTF = new JTextField(4);
+    threeTF = new JTextField(4);
+    finalTF = new JTextField(5);
+=======
+>>>>>>> a0e2f169f25941a1bcd9d852bcf219b6a042fa72
     oneTF = new JTextField(3);
     twoTF = new JTextField(3);
     threeTF = new JTextField(3);
     finalTF = new JTextField(4);
+<<<<<<< HEAD
+=======
+>>>>>>> 103632ef3d2b81ace7393e08212d70b22d50d93f
+>>>>>>> a0e2f169f25941a1bcd9d852bcf219b6a042fa72
  
     //create buttons
     addB = new JButton("+");
@@ -65,22 +78,52 @@ public class Calculator extends JFrame
     setDefaultCloseOperation(EXIT_ON_CLOSE);  
     }
    
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+   
+=======
+>>>>>>> 103632ef3d2b81ace7393e08212d70b22d50d93f
+>>>>>>> a0e2f169f25941a1bcd9d852bcf219b6a042fa72
     private class AddButtonHandler implements ActionListener
     {
       public void actionPerformed(ActionEvent e)
       {
         int one, two, three, finalScore;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
         
         one = Integer.parseInt(oneTF.getText());
         two = Integer.parseInt(twoTF.getText());
         three = Integer.parseInt(threeTF.getText());
         
         finalScore = (one * 1) + (two * 2) + (three * 3);
+        
+=======
+>>>>>>> a0e2f169f25941a1bcd9d852bcf219b6a042fa72
+        
+        one = Integer.parseInt(oneTF.getText());
+        two = Integer.parseInt(twoTF.getText());
+        three = Integer.parseInt(threeTF.getText());
+        
+        finalScore = (one * 1) + (two * 2) + (three * 3);
+<<<<<<< HEAD
+=======
+>>>>>>> 103632ef3d2b81ace7393e08212d70b22d50d93f
+>>>>>>> a0e2f169f25941a1bcd9d852bcf219b6a042fa72
         finalTF.setText(""+String.format("%d",finalScore));
         
         }
     }
     
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    
+=======
+>>>>>>> 103632ef3d2b81ace7393e08212d70b22d50d93f
+>>>>>>> a0e2f169f25941a1bcd9d852bcf219b6a042fa72
     private class ExitButtonHandler implements ActionListener
     {
       public void actionPerformed(ActionEvent e)
@@ -89,6 +132,13 @@ public class Calculator extends JFrame
         }
     }
     
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    
+=======
+>>>>>>> 103632ef3d2b81ace7393e08212d70b22d50d93f
+>>>>>>> a0e2f169f25941a1bcd9d852bcf219b6a042fa72
     public static void main(String[] args)
     {
         Calculator bbcalc = new Calculator();
